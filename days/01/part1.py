@@ -3,7 +3,7 @@
 plus = "("
 minus = ")"
 result = 0
-input_text = open('input.txt').read()
+input_text = open('instructions.txt').read()
 
 for sign in input_text:
     if sign is plus:
