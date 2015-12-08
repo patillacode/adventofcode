@@ -57,5 +57,25 @@ for line in input_text:
     wire = (line.split(' -> ')[1]).replace('\n', '')
     wires[wire] = command
 
+input_text.close()
+
 solve('a')
-print "a:{0}".format(wires['a'])
+print "Part 1 - a:{0}".format(wires['a'])
+
+# part 2
+a = wires['a']
+wires = {}
+
+# Here I fill the dictionary with all values/commands
+input_text = open('input.txt')
+for line in input_text:
+    command = (line.split(' -> ')[0])
+    wire = (line.split(' -> ')[1]).replace('\n', '')
+    if wire == 'b':
+        wires[wire] = a
+    else:
+        wires[wire] = command
+
+input_text.close()
+solve('a')
+print "Part 2 - a:{0}".format(wires['a'])
