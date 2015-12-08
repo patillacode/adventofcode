@@ -2,21 +2,7 @@
 import re
 
 
-def triple_char(string):
-    first = ''
-    second = ''
-    for letter in string:
-        if first is second and second is letter:
-            return True
-        first = second
-        second = letter
-    return False
-
-
 def pair_twice(string):
-    if triple_char(string):
-        return False
-
     pair_list = [''.join(pair) for pair in zip(string[:-1], string[1:])]
     for pair in pair_list:
         if len(re.findall(pair, string)) > 1:
@@ -30,7 +16,7 @@ def repeat_with_one_in_the_middle(string):
     first = ''
     middle = ''
     for letter in string:
-        if letter is first and letter is not middle:
+        if letter is first:
             return True
         first = middle
         middle = letter
